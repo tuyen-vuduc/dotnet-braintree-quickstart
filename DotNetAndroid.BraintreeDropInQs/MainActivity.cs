@@ -1,7 +1,7 @@
 ﻿using AndroidX.AppCompat.App;
 using Com.Braintreepayments.Api;
 
-namespace DotNet.BraintreeDropInQs;
+namespace DotNetAndroid.BraintreeDropInQs;
 
 [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light")]
 public class MainActivity : AppCompatActivity, IDropInListener
