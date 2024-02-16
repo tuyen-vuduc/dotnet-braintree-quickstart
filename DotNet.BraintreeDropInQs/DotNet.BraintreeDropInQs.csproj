@@ -24,9 +24,13 @@
         </Repository>
     </GradleRepository>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.7.0" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Core" Version="2.7.0" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.7.0" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Service" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState" Version="2.7.0" />
     <PackageReference Include="Org.Jfrog.Cardinalcommerce.Gradle.Cardinalmobilesdk" Version="2.2.7.1500" />
+    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.9.0" />
 </ItemGroup>
 </Project>

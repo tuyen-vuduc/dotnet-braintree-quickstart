@@ -3,7 +3,7 @@ using Com.Braintreepayments.Api;
 
 namespace DotNet.BraintreeDropInQs;
 
-[Activity(Label = "@string/app_name", MainLauncher = true)]
+[Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light")]
 public class MainActivity : AppCompatActivity, IDropInListener
 {
     public void OnDropInFailure(Java.Lang.Exception p0)
@@ -28,13 +28,15 @@ public class MainActivity : AppCompatActivity, IDropInListener
 
         btnLaunchDropIn = FindViewById<Button>(Resource.Id.btnLaunchDropIn);
         
-        _dropInClient = new DropInClient(this, "YOUR_AUTHORIZATION_TOKEN");
+        _dropInClient = new DropInClient(this, "YOUR_TOKENIZATION_KEY");
 
         _dropInClient.SetListener(this);
 
         btnLaunchDropIn.Click += (s, e) =>
         {
             var dropInRequest = new DropInRequest();
+            // var payPalReqeuest = new PayPalVaultRequest();
+            // dropInRequest.PayPalRequest = payPalReqeuest;
 
             _dropInClient.LaunchDropIn(dropInRequest);
         };
