@@ -1,1 +1,1 @@
-dotnet build -c Release -v normal
+dotnet build ../DotNetAndroid.BraintreeDropInQs/DotNetAndroid.BraintreeDropInQs.csproj -c Release -v normal
