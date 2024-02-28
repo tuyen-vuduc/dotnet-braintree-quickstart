@@ -70,3 +70,10 @@ jobs:
       env:
         Configuration: ${{ inputs.configuration }} 
         Verbosity: ${{ inputs.verbosity }} 
+    - name: .gradle folder
+      run: |
+        ls -ld ~/.gradle
+      env:
+        Configuration: ${{ inputs.configuration }} 
+        Verbosity: ${{ inputs.verbosity }} 
+    
