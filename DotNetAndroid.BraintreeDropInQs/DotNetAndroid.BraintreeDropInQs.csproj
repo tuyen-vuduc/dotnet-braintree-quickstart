@@ -34,4 +34,12 @@
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.9.0" />
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.5" />
 </ItemGroup>
+<PropertyGroup>    
+  <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
+  <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
+  <GradleFolderPath>$(UserHome)/.gradle</GradleFolderPath>
+</PropertyGroup>
+<Target Name="_GradleSync_Check" AfterTargets="_GradleSync">
+  <Message Condition="Exists($(GradleFolderPath))" Text=".gradle => $(GradleFolderPath)" Importance="high" />
+</Target>
 </Project>
