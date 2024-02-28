@@ -16,7 +16,7 @@ on:
       configuration:
         description: 'Verbosity'
         required: false
-        default: 'minimal'
+        default: 'Release'
         type: choice
         options:
           - Debug
