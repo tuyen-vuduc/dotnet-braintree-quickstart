@@ -51,7 +51,7 @@ jobs:
       run: dotnet workload install android
 
     # Clean
-    - name: Restore the application
+    - name: Clean the application
       run: |
         cd $Project_Folder
         dotnet clean -c $Configuration
@@ -62,6 +62,7 @@ jobs:
     - name: Build the application
       run: |
         cd $Project_Folder
+        echo "Home: $HOME"
         dotnet build -c $Configuration -v $Verbosity
         ls -ld ~/.gradle
       env:
