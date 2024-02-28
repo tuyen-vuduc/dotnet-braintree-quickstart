@@ -1,19 +1,30 @@
 name: .NET Android
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      verbosity:
+        description: 'Verbosity'
+        required: false
+        default: 'minimal'
+        type: choice
+        options:
+          - quiet
+          - minimal
+          - normal
+          - detailed
+      configuration:
+        description: 'Verbosity'
+        required: false
+        default: 'minimal'
+        type: choice
+        options:
+          - Debug
+          - Release
 
 jobs:
 
   build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
     runs-on: macos-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
@@ -49,12 +60,13 @@ jobs:
         cd $Project_Folder
         dotnet clean -c $Configuration
       env:
-        Configuration: ${{ matrix.configuration }}
+        Configuration: ${{ inputs.configuration }} 
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Build the application
       run: |
         cd $Project_Folder
-        dotnet build -c $Configuration
+        dotnet build -c $Configuration -v $Verbosity
       env:
-        Configuration: ${{ matrix.configuration }}
+        Configuration: ${{ inputs.configuration }} 
+        Verbosity: ${{ inputs.verbosity }} 
