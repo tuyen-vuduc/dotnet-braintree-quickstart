@@ -1,0 +1,53 @@
+name: .NET Android
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: macos-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    env:
+      Project_Folder: DotNetAndroid.BraintreeDropInQs
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.406
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Install .NET Android workload
+      run: dotnet workload install android
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the application
+      run: |
+        cd $Project_Folder
+        dotnet clean -c $Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Build the application
+      run: |
+        cd $Project_Folder
+        dotnet build -c $Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
