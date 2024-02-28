@@ -5,7 +5,7 @@ on:
     inputs:
       verbosity:
         description: 'Verbosity'
-        required: false
+        required: true
         default: 'minimal'
         type: choice
         options:
@@ -15,29 +15,25 @@ on:
           - detailed
       configuration:
         description: 'Verbosity'
-        required: false
-        default: 'Release'
+        required: true
+        default: 'release'
         type: choice
         options:
-          - Debug
-          - Release
-
+          - debug
+          - release
 jobs:
-
   build:
     runs-on: macos-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
     env:
       Project_Folder: DotNetAndroid.BraintreeDropInQs
-
     steps:
     - name: Checkout
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
-    # Install the .NET Core workload
+    # Install the .NET 7.0
     - name: Install .NET 7.0
       uses: actions/setup-dotnet@v3
       with:
@@ -50,11 +46,11 @@ jobs:
         java-version: '11'
         java-package: jdk # optional (jdk or jre) - defaults to jdk
         
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    # Install .NET Android workload
     - name: Install .NET Android workload
       run: dotnet workload install android
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    # Clean
     - name: Restore the application
       run: |
         cd $Project_Folder
@@ -62,18 +58,12 @@ jobs:
       env:
         Configuration: ${{ inputs.configuration }} 
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    # Build application
     - name: Build the application
       run: |
         cd $Project_Folder
         dotnet build -c $Configuration -v $Verbosity
-      env:
-        Configuration: ${{ inputs.configuration }} 
-        Verbosity: ${{ inputs.verbosity }} 
-    - name: .gradle folder
-      run: |
         ls -ld ~/.gradle
       env:
         Configuration: ${{ inputs.configuration }} 
-        Verbosity: ${{ inputs.verbosity }} 
-    
+        Verbosity: ${{ inputs.verbosity }}
