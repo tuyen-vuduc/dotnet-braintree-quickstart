@@ -40,12 +40,12 @@
   <GradleFolderPath>$(UserHome)/.gradle</GradleFolderPath>
 </PropertyGroup>
 <Target Name="_Gradle_Check" AfterTargets="_GradleSync">
-  <Message Text=".gradle => $(GradleFolderPath)" Importance="high" />
-    <Exec Command="which java"/>
-  <Exec Command="ls -RS $(GradleFolderPath)/caches/modules-2/files-2.1"/>
+  <Message Text=".gradle =&gt; $(GradleFolderPath)" Importance="high" />
+  <Exec Command="which java" />
+  <Exec Command="ls -RS $(GradleFolderPath)/caches/modules-2/files-2.1" />
 </Target>
 <Target Name="_Gradle_Check_2" AfterTargets="_CompileJava">
-  <Message Text=".gradle => $(GradleFolderPath)" Importance="high" />
-  <Exec Command="ls -RS $(GradleFolderPath)/caches/modules-2/files-2.1"/>
+  <Message Text=".gradle =&gt; $(GradleFolderPath)" Importance="high" />
+  <Exec Command="ls -RS $(GradleFolderPath)/caches/modules-2/files-2.1" />
 </Target>
 </Project>
