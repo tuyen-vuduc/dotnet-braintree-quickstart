@@ -53,17 +53,17 @@ jobs:
     # Clean
     - name: Clean the application
       run: |
-        cd $Project_Folder
-        dotnet clean -c $Configuration
+        cd %Project_Folder%
+        dotnet clean -c %Configuration%
       env:
         Configuration: ${{ inputs.configuration }} 
 
     # Build application
     - name: Build the application
       run: |
-        cd $Project_Folder
-        echo "Home: $HOME"
-        dotnet build -c $Configuration -v $Verbosity -p:JavaSdkDirectory="$JAVA_HOME"
+        cd %Project_Folder%
+        echo "Home: %HOME%"
+        dotnet build -c %Configuration% -v %Verbosity% -p:JavaSdkDirectory="%JAVA_HOME%"
         ls -ld ~/.gradle
       env:
         Configuration: ${{ inputs.configuration }} 
