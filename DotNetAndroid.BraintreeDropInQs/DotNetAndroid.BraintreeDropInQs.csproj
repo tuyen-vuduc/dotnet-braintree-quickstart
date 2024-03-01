@@ -35,12 +35,4 @@
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.5" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.1.1"/>
 </ItemGroup>
-<PropertyGroup>    
-  <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
-  <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
-</PropertyGroup>
-<Target Name="_NativePackageCheck" BeforeTargets="_CompileJava">
-  <!-- <Message Text="com.braintreepayments.api:dropin - EXISTS: $( Exists('$(UserHome)/.gradle/caches/modules-2/files-2.1/com.braintreepayments.api/drop-in/6.14.0/ad4d7e66366e11a1caf27283519952f1de2e2bf4/drop-in-6.14.0.aar') )" Importance="high" /> -->
-  <Exec Command="ls $(UserHome)/.gradle/caches/modules-2/files-2.1/com.braintreepayments.api/drop-in/6.14.0/ad4d7e66366e11a1caf27283519952f1de2e2bf4/drop-in-6.14.0.aar" />
-</Target>
 </Project>
