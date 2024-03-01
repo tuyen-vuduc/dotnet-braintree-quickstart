@@ -62,15 +62,13 @@ jobs:
     - name: Build the application
       uses: nick-fields/retry@v2
       with:
-				timeout_minutes: 15
-				max_attempts: 3
-				retry_on: error
-				# You can specify the shell commands you want to retry here
-				command: |
+        timeout_minutes: 15
+        max_attempts: 3
+        retry_on: error
+        command: |
           cd $Project_Folder
           echo "Home: $HOME"
           dotnet build -c $Configuration -v $Verbosity -p:JavaSdkDirectory="$JAVA_HOME"
-          ls -ld ~/.gradle
       env:
         Configuration: ${{ inputs.configuration }} 
         Verbosity: ${{ inputs.verbosity }}
