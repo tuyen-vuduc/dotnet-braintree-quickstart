@@ -22,7 +22,7 @@
         </Repository>
     </GradleRepository>
     
-    <PackageReference Include="Com.Braintreepayments.Api.DropIn" Version="6.14.0.2" />    
+    <PackageReference Include="Com.Braintreepayments.Api.DropIn" Version="6.14.0.3" />    
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.7.0" />
@@ -33,20 +33,14 @@
     <PackageReference Include="Org.Jfrog.Cardinalcommerce.Gradle.Cardinalmobilesdk" Version="2.2.7.1500" />
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.9.0" />
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.5" />
-    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.0"/>
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.1.1"/>
 </ItemGroup>
 <PropertyGroup>    
   <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
   <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
-  <GradleFolderPath>$(UserHome)/.gradle</GradleFolderPath>
 </PropertyGroup>
-<Target Name="_Gradle_Check" AfterTargets="_GradleSync">
-  <Message Text=".gradle =&gt; $(GradleFolderPath)" Importance="high" />
-  <Exec Command="which java" />
-  <Exec Command="ls -RS $(GradleFolderPath)/caches/modules-2/files-2.1" />
-</Target>
-<Target Name="_Gradle_Check_2" AfterTargets="_CompileJava">
-  <Message Text=".gradle =&gt; $(GradleFolderPath)" Importance="high" />
-  <Exec Command="ls -RS $(GradleFolderPath)/caches/modules-2/files-2.1" />
+<Target Name="_NativePackageCheck" BeforeTargets="_CompileJava">
+  <!-- <Message Text="com.braintreepayments.api:dropin - EXISTS: $( Exists('$(UserHome)/.gradle/caches/modules-2/files-2.1/com.braintreepayments.api/drop-in/6.14.0/ad4d7e66366e11a1caf27283519952f1de2e2bf4/drop-in-6.14.0.aar') )" Importance="high" /> -->
+  <Exec Command="ls $(UserHome)/.gradle/caches/modules-2/files-2.1/com.braintreepayments.api/drop-in/6.14.0/ad4d7e66366e11a1caf27283519952f1de2e2bf4/drop-in-6.14.0.aar" />
 </Target>
 </Project>
