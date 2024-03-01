@@ -22,7 +22,7 @@
         </Repository>
     </GradleRepository>
     
-    <PackageReference Include="Com.Braintreepayments.Api.DropIn" Version="6.14.0.1" />    
+    <PackageReference Include="Com.Braintreepayments.Api.DropIn" Version="6.14.0.2" />    
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.7.0" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.7.0" />
@@ -33,6 +33,7 @@
     <PackageReference Include="Org.Jfrog.Cardinalcommerce.Gradle.Cardinalmobilesdk" Version="2.2.7.1500" />
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.9.0" />
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.5" />
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.0"/>
 </ItemGroup>
 <PropertyGroup>    
   <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
