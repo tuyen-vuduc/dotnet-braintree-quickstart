@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAndroid.BraintreeDropInQs", "DotNetAndroid.BraintreeDropInQs\DotNetAndroid.BraintreeDropInQs.csproj", "{D968CD07-93F4-42ED-A285-0C30D4E0B573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAndroid.BraintreeDropInQs", "XamarinAndroid.BraintreeDropInQs\XamarinAndroid.BraintreeDropInQs.csproj", "{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,12 +16,6 @@ Global
 		{D968CD07-93F4-42ED-A285-0C30D4E0B573}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{D968CD07-93F4-42ED-A285-0C30D4E0B573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D968CD07-93F4-42ED-A285-0C30D4E0B573}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF40427B-3CA5-49EA-8D0A-AE7E04DCDC01}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
